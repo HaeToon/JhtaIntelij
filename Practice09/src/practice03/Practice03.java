@@ -12,11 +12,14 @@ public class Practice03 extends JFrame {
         JLabel label = new JLabel("Love Jave");
         c.add(label);
         MyKeyListener myKeyListener = new MyKeyListener();
-        c.addKeyListener(myKeyListener);
-
+        label.addKeyListener(myKeyListener);
+          c.addKeyListener(myKeyListener);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         c.setFocusable(true);
+        label.setFocusable(true);
+        c.requestFocus();
+        label.requestFocus();
     }
 
     public static void main(String[] args) {

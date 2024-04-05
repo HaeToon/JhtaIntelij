@@ -17,8 +17,8 @@ public class Practice01 extends JFrame {
         label.setSize(20,20);
         c.setLayout(new FlowLayout());
         c.add(label);
-        Practice01MouseListener practice01MouseListener = new Practice01MouseListener();
-        label.addMouseListener(practice01MouseListener);
+        MyMouseListener01 myMouseListener01 = new MyMouseListener01();
+        label.addMouseListener(myMouseListener01);
 
 
 
@@ -29,32 +29,4 @@ public class Practice01 extends JFrame {
     public static void main(String[] args) {
         new Practice01();
     }
-    class Practice01MouseListener implements MouseListener {
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-                label.setText("Love Java");
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            label.setText("사랑해");
-        }
-    }
-
 }
