@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 class MyPanel extends  JPanel{
+    //JPanel , JButton, JLabel등등에 그림을 그릴수 있다.
     private Color colors[] = {Color.red,Color.blue,Color.yellow,Color.green};
     public void paintComponent(Graphics g){
         super.paintComponent(g);
