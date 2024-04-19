@@ -3,7 +3,28 @@ import java.awt.*;
 
 //1. ball radius 2.block x,y, width,height 3.paddle x,y,width,height
 public class BlockGame {
-private int x,y,width,height;
+private int x,y,width,height,point;
+private Color color;
+private boolean isTouched;
+
+
+    public BlockGame() {
+
+    }
+
+    public BlockGame(int x, int y, int width, int height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+    public BlockGame(int x, int y, int width, int height, Color color) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
 
     public int getX() {
         return x;
@@ -37,15 +58,27 @@ private int x,y,width,height;
         this.height = height;
     }
 
-    public BlockGame() {
-        this(100,100,90,90);
+    public Color getColor() {
+        return color;
     }
 
-    public BlockGame(int x, int y, int width, int height) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+    public void setColor(Color color) {
+        this.color = color;
     }
 
+    public boolean isTouched() {
+        return isTouched;
+    }
+
+    public void setTouched(boolean touched) {
+        isTouched = touched;
+    }
+
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
+    }
 }

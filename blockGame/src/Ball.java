@@ -14,9 +14,9 @@ private int life =3;
         this.life=3;
         this.x=0;
         this.y=0;
-        this.radius=100;
-        this.setSpeedX(5);
-        this.setSpeedY(5);
+        this.radius=10;
+        this.setSpeedX(2);
+        this.setSpeedY(2);
     }
 
     public Ball(int x, int y) {
@@ -75,7 +75,7 @@ private int life =3;
         y+=speedY;
     }
     public boolean isRightTouched(){
-        if(x+radius>=GamePanel.GAME_WIDTH) {
+        if(x+radius>=GamePanel01.GAME_WIDTH) {
             System.out.println("오른쪽 닿음");
             return true;
         }
