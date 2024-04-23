@@ -24,12 +24,19 @@ public class GamePanel extends JPanel implements Runnable {
     private int count = 0;
     private int itemNum = 0;
     private int boss = 0;
+    private int time;
     private GameState gameState = GameState.LOADING;
     Thread thread = null;
 
     Timer timer = new Timer(); //thread구현한것
     Timer clearTimer = new Timer(); //thread구현한것
-
+    Timer gameTimer = new Timer();
+    TimerTask gameTimerTask = new TimerTask() {
+        @Override
+        public void run() {
+            time+=1;
+        }
+    };
     TimerTask timerTask = new TimerTask() {
         @Override
         public void run() {
@@ -157,7 +164,9 @@ public class GamePanel extends JPanel implements Runnable {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     if (gameState == GameState.LOADING) {
                         gameState = GameState.PLAY;
+                        time=0;
                         timer.schedule(timerTask, 1000, 1000); ///1초에 1번 실행
+                        gameTimer.schedule(gameTimerTask,1000,1000);
                         giftTimer.schedule(giftTimerTask, 10000, 10000);
                     }
                 }
@@ -219,6 +228,7 @@ public class GamePanel extends JPanel implements Runnable {
             g.drawImage(ufoIcon.getImage(), GAME_WITDH / 2 - ufoImage.getWidth(null) / 2, GAME_HEIGHT / 2 - ufoImage.getHeight(null) / 2, null);
 //            g.setColor(new Color(122, 255, 122));
             g.drawString("Start?  Press -Enter-", GAME_WITDH / 2 - 300, GAME_HEIGHT / 2 + GAME_HEIGHT / 3 + 70);
+
         }
         if (gameState == GameState.PLAY) {
 
@@ -285,6 +295,7 @@ public class GamePanel extends JPanel implements Runnable {
             g.setColor(Color.white);
             g.setFont(new Font("맑은 고딕", Font.BOLD, 30));
             g.drawString("point : " + point, 1100, 50);
+            g.drawString("PlayTime : "+time,GAME_WITDH/2,50);
         } else if (gameState == GameState.END) {
             g.setColor(Color.black);
             g.fillRect(0, 0, GAME_WITDH, GAME_HEIGHT);
