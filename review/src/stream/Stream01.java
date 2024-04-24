@@ -97,6 +97,7 @@ public class Stream01 {
 
         List<String>nameList02 = studentList.stream()
                 .sorted((o1, o2) -> o2.getName().compareTo(o1.getName()))
+//                .map(value ->value.getName())
                 .map(Student::getName)
                 .collect(Collectors.toList());
         nameList02.forEach(s -> System.out.println(s));
