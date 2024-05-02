@@ -10,9 +10,8 @@ public class GamePanel extends JPanel implements Runnable {
     private boolean isStart = false;
     private boolean isEnd = false;
     private int speed = 3;
-    private int monstersN=10;
+    private int monstersN=15;
     private int playTime;
-    private int playPoint;
     private boolean isLeft, isRight, isUp, isDown;
     static final int GAME_WIDTH = 888;
     static final int GAME_HEIGHT = 777;
@@ -27,12 +26,7 @@ public class GamePanel extends JPanel implements Runnable {
         public void run() {
             if (player.getLife()!=0)
             playTime += 1;
-            playPoint+=1;
-            if(playPoint>=5){
-                System.out.println("몬스터 추가");
-//                monstersN++;
-                playPoint=0;
-            }
+
         }
     };
     Thread thread;
@@ -99,7 +93,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     if(isEnd){
-                        monstersN=10;
+                        monstersN=15;
                         playTime=0;
                         isEnd=false;
                         isStart=true;
